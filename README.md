@@ -5,6 +5,7 @@
 - Install nestjs cli - `npm i @nestjs/cli -g`
 - Create new nest js application `nest new <app_name>`
 - Create a new module `nest g module <module_name>`
+- Create respective service and controller
 
 #### Module
 

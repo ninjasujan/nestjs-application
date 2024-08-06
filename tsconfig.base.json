@@ -1,0 +1,24 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2020", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@lib/users": ["libs/users/src/index.ts"],
+            "@nest-workspace/auth": ["libs/auth/src/index.ts"],
+            "@nest-workspace/database": ["libs/database/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
+}

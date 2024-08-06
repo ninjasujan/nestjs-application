@@ -1,0 +1,24 @@
+{
+    "name": "school-mgt",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/school-mgt/src",
+    "projectType": "application",
+    "tags": [],
+    "targets": {
+        "serve": {
+            "executor": "@nx/js:node",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "school-mgt:build"
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "school-mgt:build:development"
+                },
+                "production": {
+                    "buildTarget": "school-mgt:build:production"
+                }
+            }
+        }
+    }
+}

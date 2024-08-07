@@ -1,6 +1,15 @@
 import { UserService } from "@lib/users";
-import { JwtAuthGuard, LocalAuthGuard, Policy } from "@nest-workspace/auth";
-import { Controller, Get, Post, Req, Res, UseGuards } from "@nestjs/common";
+import { JwtAuthGuard, LocalAuthGuard, Role, PolicyGuard } from "@nest-workspace/auth";
+import {
+    Controller,
+    Get,
+    Param,
+    ParseIntPipe,
+    Post,
+    Req,
+    Res,
+    UseGuards,
+} from "@nestjs/common";
 import { Request, Response } from "express";
 
 @Controller("users")
@@ -14,16 +23,15 @@ export class UsersController {
         response.status(200).json(user);
     }
 
-    @UseGuards(JwtAuthGuard)
-    @Policy("USER")
+    @UseGuards(JwtAuthGuard, PolicyGuard)
+    @Role("ADMIN")
     @Get("/user/:id")
-    getUser(@Req() request: Request, @Res() response: Response) {
-        const id = request.params.id;
-        response.status(200).json({
-            user: {
-                name: "Sujan",
-                id: id,
-            },
-        });
+    getUser(
+        @Req() request: Request,
+        @Param("id", ParseIntPipe) id: number,
+        @Res() response: Response
+    ) {
+        const user = this.userService.getUser(id);
+        response.status(200).json(user);
     }
 }

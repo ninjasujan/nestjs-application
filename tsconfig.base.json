@@ -17,7 +17,8 @@
         "paths": {
             "@lib/users": ["libs/users/src/index.ts"],
             "@nest-workspace/auth": ["libs/auth/src/index.ts"],
-            "@nest-workspace/database": ["libs/database/src/index.ts"]
+            "@nest-workspace/database": ["libs/database/src/index.ts"],
+            "@nest-workspace/exception": ["libs/exception/src/index.ts"]
         }
     },
     "exclude": ["node_modules", "tmp"]

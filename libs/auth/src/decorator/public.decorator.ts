@@ -1,3 +1,3 @@
 import { SetMetadata } from '@nestjs/common';
-export const POLICY = 'POLICY';
-export const Policy = (policy: string) => SetMetadata(POLICY, policy);
+export const ROLE_KEY = 'ROLE';
+export const Role = (role: string) => SetMetadata(ROLE_KEY, role);

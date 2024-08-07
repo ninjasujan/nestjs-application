@@ -1,13 +1,13 @@
-import { Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable } from "@nestjs/common";
 import { IUser } from "../interface";
-import { JwtService } from "@nestjs/jwt";
+// import { JwtService } from "@nestjs/jwt";
 import { AuthService } from "@nest-workspace/auth";
 
 @Injectable()
 export class UserService {
     constructor(private readonly authService: AuthService) {}
 
-    loginUser(): { user: IUser; token: string } {
+    loginUser(): { user: Partial<IUser>, token: string } {
         const user = {
             name: "Sujan",
             email: "sujan@gmail.com",
@@ -25,12 +25,13 @@ export class UserService {
         };
     }
 
-    getUser(): IUser {
+    getUser(id: number): Partial<IUser> {
         return {
+            _id: id,
             name: "Sujan",
             email: "sujan@gmail.com",
             dob: new Date("19-03-1999"),
             password: "12345",
-        };
+        }
     }
 }

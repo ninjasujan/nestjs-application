@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { Injectable } from "@nestjs/common";
 import { IUser } from "../interface";
 // import { JwtService } from "@nestjs/jwt";
 import { AuthService } from "@nest-workspace/auth";
